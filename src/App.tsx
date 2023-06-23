@@ -181,8 +181,10 @@ function App() {
             {suggestions.map((suggestion, index) => (
               <button
                 key={index}
-                className={`mt-4 mr-2 shrink-0 rounded-full border border-gray-50 bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-900 ${
-                  darkMode ? " bg-black border-none" : ""
+                className={`mt-4 mr-2 shrink-0 rounded-full border px-4 py-2 text-sm font-semibold text-gray-900 ${
+                  darkMode
+                    ? " bg-black/30 border-none text-white border-gray-100"
+                    : "bg-gray-200"
                 }`}
                 onClick={() => {
                   setSelectedSuggestion(suggestion);
@@ -224,7 +226,12 @@ function App() {
         <SiTailwindcss className="inline-block align-text-bottom mx-1 text-teal-500" />
         {" and "}
         <AiTwotoneHeart className="inline-block align-text-bottom mx-1 text-red-500" />
-        {" by OpenAI"}
+        <a
+          href="https://abhivarde.vercel.app"
+          className={`${darkMode ? "text-white" : "text-black"}`}
+        >
+          Abhi
+        </a>
       </footer>
     </div>
   );
