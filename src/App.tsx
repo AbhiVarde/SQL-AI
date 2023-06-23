@@ -174,34 +174,10 @@ function App() {
               </button>
             </form>
           </div>
-          <div
-            className={`relative rounded-lg border ${
-              darkMode ? "border-gray-800" : "border-gray-300"
-            } ${
-              darkMode ? "bg-gray-800 bg-gray-800/50" : "bg-gray-100"
-            } px-5 py-8`}
-          >
-            {displayedResult || "Your SQL query result will be displayed here."}
-            <p
-              className={`absolute bottom-2 right-8 ${
-                darkMode ? "text-white/70" : ""
-              }`}
-            >
-              - SQL AI 🤖
-            </p>
-            <button
-              className={`absolute top-3 right-3 h-4 w-4 fill-gray-600 ${
-                darkMode ? "fill-white" : ""
-              }`}
-              onClick={copyToClipboard}
-            >
-              <MdContentCopy />
-            </button>
-          </div>
-          <p className={`mt-5 -mb-2 ${darkMode ? "text-white/80" : ""}`}>
+          <p className={` -mb-2 ${darkMode ? "text-white/80" : ""}`}>
             Or, try one of these
           </p>
-          <div className="overflow-x-scroll no-scrollbar flex flex-nowrap">
+          <div className="overflow-x-scroll no-scrollbar flex flex-nowrap mb-6">
             {suggestions.map((suggestion, index) => (
               <button
                 key={index}
@@ -215,6 +191,30 @@ function App() {
                 {suggestion}
               </button>
             ))}
+          </div>
+          <div
+            className={`relative rounded-lg border ${
+              darkMode ? "border-gray-800" : "border-gray-300"
+            } ${
+              darkMode ? "bg-gray-800 bg-gray-800/50" : "bg-gray-100"
+            } px-5 py-8`}
+          >
+            {displayedResult || "Your SQL query result will be displayed here."}
+            <p
+              className={`absolute text-sm bottom-2 right-8 ${
+                darkMode ? "text-white/70" : ""
+              }`}
+            >
+              - SQL AI 🤖
+            </p>
+            <button
+              className={`absolute top-3 right-3 h-4 w-4 fill-gray-600 ${
+                darkMode ? "fill-white" : ""
+              }`}
+              onClick={copyToClipboard}
+            >
+              <MdContentCopy />
+            </button>
           </div>
         </div>
       </main>
