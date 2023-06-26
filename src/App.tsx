@@ -230,7 +230,7 @@ function App() {
           href="https://abhivarde.vercel.app"
           className={`${darkMode ? "text-white" : "text-black"}`}
         >
-          Abhi
+          AbhiVarde
         </a>
       </footer>
     </div>
