@@ -131,7 +131,7 @@ function App() {
       <main className="mx-auto mb-20 max-w-3xl px-10 pt-16 md:pt-20 lg:pt-28 font-Nunito">
         <div>
           <div className="flex h-full flex-col justify-center">
-            <h1 className="-mb-3 text-center text-3xl">SQL GPT</h1>
+            <h1 className="-mb-3 text-center text-3xl">SQL AI</h1>
             <h3
               className={`mt-6 text-center text-lg font-light ${
                 darkMode ? "text-white/80" : ""
