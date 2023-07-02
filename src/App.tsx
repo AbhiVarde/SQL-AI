@@ -224,8 +224,8 @@ function App() {
         Built with{" "}
         <SiReact className="inline-block align-text-bottom mx-1 text-[#087EA4]" />
         <SiTailwindcss className="inline-block align-text-bottom mx-1 text-teal-500" />
-        {" and "}
-        <AiTwotoneHeart className="inline-block align-text-bottom mx-1 text-red-500" />
+        {"and"}
+        <AiTwotoneHeart className="inline-block align-text-bottom mx-1 text-green-500" />
         <a
           href="https://abhivarde.vercel.app"
           className={`${darkMode ? "text-white" : "text-black"}`}
