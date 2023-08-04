@@ -72,7 +72,7 @@ function App() {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer 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",
+              "Bearer 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",
           },
         }
       );
