@@ -5,8 +5,6 @@ import QueryExplanation from "./components/QueryExplanation";
 import QueryForm from "./components/QueryForm";
 import QuerySuggestions from "./components/QuerySuggestions";
 import QueryResult from "./components/QueryResult";
-import { SiReact, SiTailwindcss } from "react-icons/si";
-import { AiTwotoneHeart } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -15,6 +13,7 @@ function App() {
   const [queryResult, setQueryResult] = useState("");
   const [queryExplanation, setQueryExplanation] = useState("");
   const [displayedResult, setDisplayedResult] = useState("");
+  const [displayedExplanation, setDisplayedExplanation] = useState("");
   const [selectedSuggestion, setSelectedSuggestion] = useState("");
 
   const suggestions = [
@@ -30,14 +29,24 @@ function App() {
       let i = 0;
       const typingInterval = setInterval(() => {
         setDisplayedResult((prevResult) => prevResult + queryResult.charAt(i));
+        setDisplayedExplanation(
+          (prevResult) => prevResult + queryExplanation.charAt(i)
+        );
         i++;
         if (i === queryResult.length) {
+          clearInterval(typingInterval);
+        }
+        if (i === queryExplanation.length) {
           clearInterval(typingInterval);
         }
       }, 50);
     };
     if (queryResult !== "") {
       setDisplayedResult("");
+      typeText();
+    }
+    if (queryExplanation !== "") {
+      setDisplayedExplanation("");
       typeText();
     }
   }, [queryResult]);
@@ -119,7 +128,7 @@ function App() {
       <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <ToastContainer position="top-center" />
 
-      <main className="mx-auto mb-20 max-w-3xl px-10 pt-16 md:pt-20 lg:pt-28 font-Nunito">
+      <main className="mx-auto mb-20 max-w-3xl px-4 sm:px-6  md:px-8 lg:px-10 pt-14 lg:pt-16 font-Nunito">
         <h1 className="-mb-3 text-center text-3xl">SQL AI</h1>
 
         <h3
@@ -154,25 +163,25 @@ function App() {
           copyToClipboard={copyToClipboard}
         />
 
-        <QueryExplanation explanation={queryExplanation} darkMode={darkMode} />
+        <QueryExplanation
+          explanation={displayedExplanation}
+          darkMode={darkMode}
+        />
       </main>
 
       <footer
         className={`fixed bottom-0 left-0 right-0 text-center my-4 ${
-          darkMode ? "text-gray-300" : "text-gray-400"
+          darkMode ? "text-gray-300" : "text-black/60"
         }`}
       >
-        Built with{" "}
-        <SiReact className="inline-block align-text-bottom mx-1 text-[#087EA4]" />
-        <SiTailwindcss className="inline-block align-text-bottom mx-1 text-teal-500" />
-        {"and"}
-        <AiTwotoneHeart className="inline-block align-text-bottom mx-1 text-green-500" />
+        Built by{" "}
         <a
           href="https://abhivarde.vercel.app"
-          className={`${darkMode ? "text-white" : "text-black"}`}
+          className={`${darkMode ? "text-white" : "text-black"} `}
         >
           AbhiVarde
         </a>
+        . Made for people of the internet.
       </footer>
     </div>
   );
