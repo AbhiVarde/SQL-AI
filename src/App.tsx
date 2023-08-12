@@ -119,7 +119,7 @@ function App() {
       <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <ToastContainer position="top-center" />
 
-      <main className="mx-auto mb-20 max-w-3xl px-4 sm:px-6  md:px-10 lg:px-14 pt-16 lg:pt-20 font-Nunito">
+      <main className="mx-auto mb-20 max-w-3xl px-4 sm:px-6  md:px-12 lg:px-16 pt-20 lg:pt-24 font-Nunito">
         <h1 className="-mb-3 text-center text-3xl">SQL AI</h1>
 
         <h3
