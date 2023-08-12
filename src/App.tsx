@@ -1,7 +1,6 @@
 import { useState, useEffect, FormEvent } from "react";
 import axios from "axios";
 import DarkModeToggle from "./components/DarkModeToggle";
-import QueryExplanation from "./components/QueryExplanation";
 import QueryForm from "./components/QueryForm";
 import QuerySuggestions from "./components/QuerySuggestions";
 import QueryResult from "./components/QueryResult";
@@ -13,7 +12,6 @@ function App() {
   const [queryResult, setQueryResult] = useState("");
   const [queryExplanation, setQueryExplanation] = useState("");
   const [displayedResult, setDisplayedResult] = useState("");
-  const [displayedExplanation, setDisplayedExplanation] = useState("");
   const [selectedSuggestion, setSelectedSuggestion] = useState("");
 
   const suggestions = [
@@ -29,9 +27,6 @@ function App() {
       let i = 0;
       const typingInterval = setInterval(() => {
         setDisplayedResult((prevResult) => prevResult + queryResult.charAt(i));
-        setDisplayedExplanation(
-          (prevResult) => prevResult + queryExplanation.charAt(i)
-        );
         i++;
         if (i === queryResult.length) {
           clearInterval(typingInterval);
@@ -43,10 +38,6 @@ function App() {
     };
     if (queryResult !== "") {
       setDisplayedResult("");
-      typeText();
-    }
-    if (queryExplanation !== "") {
-      setDisplayedExplanation("");
       typeText();
     }
   }, [queryResult]);
@@ -82,7 +73,7 @@ function App() {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer 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",
+              "Bearer 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",
           },
         }
       );
@@ -128,7 +119,7 @@ function App() {
       <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <ToastContainer position="top-center" />
 
-      <main className="mx-auto mb-20 max-w-3xl px-4 sm:px-6  md:px-8 lg:px-10 pt-14 lg:pt-16 font-Nunito">
+      <main className="mx-auto mb-20 max-w-3xl px-4 sm:px-6  md:px-10 lg:px-14 pt-16 lg:pt-20 font-Nunito">
         <h1 className="-mb-3 text-center text-3xl">SQL AI</h1>
 
         <h3
@@ -161,11 +152,6 @@ function App() {
           displayedResult={displayedResult}
           darkMode={darkMode}
           copyToClipboard={copyToClipboard}
-        />
-
-        <QueryExplanation
-          explanation={displayedExplanation}
-          darkMode={darkMode}
         />
       </main>
 

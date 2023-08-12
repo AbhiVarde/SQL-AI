@@ -7,11 +7,19 @@ const QueryResult = ({ darkMode, displayedResult, copyToClipboard }: any) => {
     <motion.div
       className={`relative rounded-lg border ${
         darkMode ? "border-gray-800" : "border-gray-300"
-      } ${darkMode ? "bg-gray-800 bg-gray-800/50" : "bg-gray-100"} px-5 py-8`}
+      } ${darkMode ? "bg-gray-800 bg-gray-800/50" : "bg-gray-100"} px-5 py-4`}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.4 }}
     >
+      <motion.h2
+        className="text-lg font-semibold mb-2"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+      >
+        Result:
+      </motion.h2>
       {displayedResult || "Your SQL query result will be displayed here."}
       <motion.p
         className={`absolute text-sm bottom-2 right-8 ${
