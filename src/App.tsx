@@ -160,14 +160,13 @@ function App() {
           darkMode ? "text-gray-300" : "text-black/60"
         }`}
       >
-        Built by{" "}
+        &copy; {new Date().getFullYear()}, Designed & Build by{" "}
         <a
           href="https://abhivarde.vercel.app"
           className={`${darkMode ? "text-white" : "text-black"} `}
         >
           AbhiVarde
         </a>
-        . Made for people of the internet.
       </footer>
     </div>
   );
